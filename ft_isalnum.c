@@ -6,15 +6,15 @@
 /*   By: abignals <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:38:02 by abignals          #+#    #+#             */
-/*   Updated: 2025/04/28 14:40:31 by abignals         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:54:28 by abignals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(char *str)
 {
-	if (*str >= '0' || *str <= '9')
+	if (*str >= '0' && *str <= '9')
 		return (1);
-	if ((*str >= 'a' || *str <= 'z') || (*str >= 'A' || *str <= 'Z'))
+	if ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
 		return (1);
 	return (0);
 }

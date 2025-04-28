@@ -6,11 +6,11 @@
 /*   By: abignals <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:34:06 by abignals          #+#    #+#             */
-/*   Updated: 2025/04/28 14:37:13 by abignals         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:54:04 by abignals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(char *str)
 {
-	return ((*str >= 'a' || *str <= 'z') || (*str >= 'A' || *str <= 'Z'));
+	return ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'));
 }
