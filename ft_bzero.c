@@ -17,7 +17,7 @@ void	ft_bzero(void *s, int size)
 	i = 0;
 	while (i < size)
 	{
-		s[i] = '\0';
+		(char)s[i] = '\0';
 		i++;
 	}
 }

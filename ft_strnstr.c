@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 char	*strnstr(const char *big, const char *little, int len)
-{	
+{
 	int	i;
 	int	t;
 
@@ -24,8 +24,8 @@ char	*strnstr(const char *big, const char *little, int len)
 			if (t == len)
 				return (&big[i]);
 			t++;
-		}	
+		}
 		i++;
 	}
 	return (big);
-}	
+}
