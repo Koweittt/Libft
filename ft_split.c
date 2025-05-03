@@ -19,6 +19,8 @@ static int	ft_count_words(const char *str, char c)
 	int	count;
 	int	in_word;
 
+	if (c == '\0')
+		return (*str != '\0');
 	i = 0;
 	count = 0;
 	in_word = 0;
@@ -53,7 +55,11 @@ static char	**ft_fill_tab(char **tab, const char *str, char c)
 			i++;
 		tab[t] = malloc(i - start + 1);
 		if (!tab[t])
+		{
+			while (t-- > 0)
+				free(tab[t]);
 			return (NULL);
+		}
 		ft_strlcpy(tab[t], &str[start], i - start + 1);
 		t++;
 	}
@@ -63,16 +69,22 @@ static char	**ft_fill_tab(char **tab, const char *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
+	int		word_count;
 
 	if (!s)
 		return (NULL);
-	tab = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	word_count = ft_count_words(s, c);
+	tab = malloc((word_count + 1) * sizeof(char *));
 	if (!tab)
+	{
 		return (NULL);
-	tab = ft_fill_tab(tab, s, c);
-	if (!tab)
+	}
+	if (!ft_fill_tab(tab, s, c))
+	{
+		free(tab);
 		return (NULL);
-	tab [ft_count_words(s, c)] = NULL;
+	}
+	tab [word_count] = NULL;
 	return (tab);
 }
 
