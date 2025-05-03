@@ -10,21 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(int taille, int b)
+static void	*ft_memoryalloc(size_t size)
 {
-	int		i;
-	void	*ret;
+	void	*new;
+	size_t		i;
 
 	i = 0;
-	ret = malloc(taille * sizeof(b));
-	if (!ret)
+	new = (void *)malloc(size);
+	if (!new)
 		return (NULL);
-	while (i < taille)
+
+	while (i < size)
 	{
-		ret[i] = 0;
+		*(unsigned char *)(new + i) = 0;
 		i++;
 	}
-	return (ret);
+	return (new);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	if (size != 0 && count > ((size_t) -1 / size))
+		return (NULL);
+	return (ft_memoryalloc(count * size));
 }

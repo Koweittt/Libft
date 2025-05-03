@@ -1,7 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_count_words(char *str, char c)
+static int	ft_count_words(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -24,7 +23,7 @@ int	ft_count_words(char *str, char c)
 	return (count);
 }
 
-char	**ft_fill_tab(char **tab, char *str, char c)
+static char	**ft_fill_tab(char **tab, const char *str, char c)
 {
 	int	i;
 	int	t;
@@ -51,7 +50,7 @@ char	**ft_fill_tab(char **tab, char *str, char c)
 	return (tab);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**tab;
 
@@ -63,7 +62,7 @@ char	**ft_split(char *s, char c)
 	return (tab);
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	char	**tab;
 	int		i;
@@ -83,4 +82,4 @@ int	main(int argc, char **argv)
 		}
 	}
 	return (0);
-}
+}*/

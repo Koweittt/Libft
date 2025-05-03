@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+#include "libft.h"
+
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	count;
@@ -38,15 +40,4 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (result * sign);
-}
-
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	int	t;
-	if (argc < 1)
-		return (0);
-	t = ft_atoi(argv[1]);
-	printf("%d", t);
 }

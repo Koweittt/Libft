@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isset(char c, char const *set)
+#include "libft.h"
+
+static int	ft_isset(char c, char const *set)
 {
 	int	i;
 
@@ -24,39 +26,29 @@ int	ft_isset(char c, char const *set)
 	return (0);
 }
 
-int	ft_strlenset(char *str, const char *set)
-{
-	int	i;
-	int	tot;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isset(str[i], set) == 0)
-			tot++;
-		i++;
-	}
-	return (tot + 1);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*sc;
-	int		i;
-	int		w;
+	char	*res;
+	size_t		start;
+	size_t		end;
+	size_t		i;
 
-	i = 0;
-	sc = malloc(ft_strlenset(s1, set) * sizeof(char));
-	if (!sc)
+	if (!s1 || !set)
 		return (NULL);
-	while (s1[i])
-	{
-		if (ft_isset(s1[i], set) == 0)
-		{
-			sc[w] = s1[i];
-			w++;
-		}
-		i++;
-	}
-	return (sc);
+	start = 0;
+	while (s1[start] && ft_isset(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	if (start == end)
+		return(ft_strdup(""));
+	while (end > start && ft_isset(s1[end - 1], set))
+		end--;
+	res = malloc((end - start + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (start < end)
+		res[i++] = s1[start++];
+	res[i] = '\0';
+	return (res);
 }

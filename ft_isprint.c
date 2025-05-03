@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *str)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-	return (*str >= 33 && *str <= 126);
+	return (c >= 32 && c <= 126);
 }

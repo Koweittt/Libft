@@ -1,7 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int	get_count(int n)
+static int	get_count(int n)
 {
 	int	i;
 
@@ -44,7 +43,3 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int	main(void)
-{
-	printf("%s", ft_itoa(-9023898));
-}

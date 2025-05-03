@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, int size)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t size)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
 	{
-		(char)s[i] = '\0';
+		*(unsigned char *)(s + i)= 0;
 		i++;
 	}
 }
