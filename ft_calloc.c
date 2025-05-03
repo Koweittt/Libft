@@ -15,13 +15,12 @@
 static void	*ft_memoryalloc(size_t size)
 {
 	void	*new;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	new = (void *)malloc(size);
 	if (!new)
 		return (NULL);
-
 	while (i < size)
 	{
 		*(unsigned char *)(new + i) = 0;

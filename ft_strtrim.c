@@ -29,9 +29,9 @@ static int	ft_isset(char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
-	size_t		start;
-	size_t		end;
-	size_t		i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -40,7 +40,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	end = ft_strlen(s1);
 	if (start == end)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	while (end > start && ft_isset(s1[end - 1], set))
 		end--;
 	res = malloc((end - start + 1) * sizeof(char));

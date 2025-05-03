@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abignals <abignals@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 16:58:06 by abignals          #+#    #+#             */
+/*   Updated: 2025/05/03 16:58:07 by abignals         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_count_words(const char *str, char c)
 {
@@ -27,7 +40,6 @@ static char	**ft_fill_tab(char **tab, const char *str, char c)
 {
 	int	i;
 	int	t;
-	int	j;
 	int	start;
 
 	i = 0;
@@ -42,22 +54,24 @@ static char	**ft_fill_tab(char **tab, const char *str, char c)
 		tab[t] = malloc(i - start + 1);
 		if (!tab[t])
 			return (NULL);
-		j = 0;
-		while (start < i)
-			tab[t][j++] = str[start++];
+		ft_strlcpy(tab[t], &str[start], i - start + 1);
 		t++;
 	}
 	return (tab);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 
+	if (!s)
+		return (NULL);
 	tab = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!tab)
 		return (NULL);
 	tab = ft_fill_tab(tab, s, c);
+	if (!tab)
+		return (NULL);
 	tab [ft_count_words(s, c)] = NULL;
 	return (tab);
 }
@@ -68,13 +82,8 @@ char	**ft_split(const char *s, char c)
 	int		i;
 
 	i = 0;
-	if (argc < 2)
-		return (0);
-	if (argc > 2)
-		return (0);
-	if (argc == 2)
 	{
-		tab = ft_split(argv[1], ' ');
+		tab = ft_split(argv[1],);
 		while (tab[i])
 		{
 			printf("%s\n", tab[i]);

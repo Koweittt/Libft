@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		*(unsigned char *)(s + i)= 0;
+		*(unsigned char *)(s + i) = 0;
 		i++;
 	}
 }
