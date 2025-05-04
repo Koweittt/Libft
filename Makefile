@@ -52,7 +52,7 @@ $(NAME): $(OBJS)
 	@echo "$(YELLOW)• Compiling: $(notdir $<)$(RESET)"
 
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJSALL)
 	@echo "$(RED)• Object files removed$(RESET)"
 
 fclean: clean
